@@ -141,4 +141,5 @@ node_modules
 /.vs
 /TestResults
 
-
+# macOS
+.DS_Store
