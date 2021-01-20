@@ -1,4 +1,5 @@
 from io import StringIO
+from datetime import timedelta
 
 import pandas as pd
 import numpy as np
@@ -26,7 +27,9 @@ class HHSReportedPatientImpactHospitalCapacityFacility(HHSDataset):
         df.columns = [x.lower().strip() for x in df.columns]
 
         # Set date and fips code
-        df.loc[:, "dt"] = pd.to_datetime(df["collection_week"])
+        # NOTE: collection_week refers to the first day of the week, so add 6
+        # days to get the last day.
+        df.loc[:, "dt"] = pd.to_datetime(df["collection_week"]) + timedelta(days=6)
 
         # Filter out all of the columns without a fips code for now -- I
         # think that it is likely that we could reverse engineer these
@@ -163,7 +166,7 @@ class HHSReportedPatientImpactHospitalCapacityFacility(HHSDataset):
 
         # TODO: Throwing out territories because I don't remember which weren't
         # included in the census data :(
-        out_county = out_county.query("location < 60_000")
+        out_county = out_county.query("location < 60_000").copy()
 
         # Add vintage
         out_county.loc[:, "vintage"] = self._retrieve_vintage()

@@ -4,6 +4,7 @@ from can_tools.scrapers.official.DC import DCCases, DCGeneral, DCDeaths
 
 from can_tools.scrapers.official.federal import (
     CDCCovidDataTracker,
+    CDCStateVaccine,
     HHSReportedPatientImpactHospitalCapacityFacility,
     HHSReportedPatientImpactHospitalCapacityState,
 )
@@ -36,5 +37,17 @@ from can_tools.scrapers.official.TN import (
     TennesseeCounty,
     TennesseeState,
 )
-from can_tools.scrapers.official.TX import TexasCasesDeaths, TexasTests
+from can_tools.scrapers.official.TX import (
+    TexasCasesDeaths,
+    TexasTests,
+    TexasCountyVaccine,
+    TexasStateVaccine,
+    # TexasVaccineDemographics,
+)
 from can_tools.scrapers.official.WI import WisconsinCounties, WisconsinState
+
+from can_tools.scrapers.official.CT import (
+    CTCountyDeathHospitalizations,
+    CTCountyTests,
+    CTState,
+)
