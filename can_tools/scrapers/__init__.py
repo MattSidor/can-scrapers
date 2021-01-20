@@ -14,6 +14,7 @@ from can_tools.scrapers.official import (  # IllinoisDemographics,; IllinoisHist
     HHSReportedPatientImpactHospitalCapacityState,
     MarylandCounties,
     MarylandState,
+    MichiganCounties,
     NewYorkTests,
     PennsylvaniaCasesDeaths,
     PennsylvaniaHospitals,
